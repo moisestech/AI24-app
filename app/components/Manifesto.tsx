@@ -1,3 +1,6 @@
+import type { FC } from 'react'
+import React from 'react'
+
 const Manifesto: FC = () => {
   return (
     <div className="h-full flex flex-col text-center justify-around">

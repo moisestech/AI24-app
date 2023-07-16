@@ -4,11 +4,11 @@ import type { PropsWithChildren, ReactNode } from 'react'
 import React from 'react'
 import Head from 'next/head'
 
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+// import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from './database.types'
 
-import { Session } from '@supabase/supabase-js'
+// import { Session } from '@supabase/supabase-js'
 import SupabaseProvider from './supabase-provider'
 import Footer from './components/ui/Footer'
 import Navbar from './components/Navbar'
@@ -56,11 +56,11 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const loadTwitterWidget = true
 
-  const supabase = createServerComponentClient<Database>({ cookies })
+  // const supabase = createServerComponentClient<Database>({ cookies })
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
+  // const {
+  //   data: { session },
+  // } = await supabase.auth.getSession()
 
   return (
     <html lang="en">
@@ -93,9 +93,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           )}
         </Head>
         
-        <SupabaseProvider session={session}>
+        {/* <SupabaseProvider session={session}> */}
           <DataProvider>
-            <Navbar session={session} />
+            <Navbar /> {/* session={session} */}
               {/* <main className="container" style={{ padding: '50px 0 100px 0' }}> */}
 
               <main style={{ padding: '0 0 100px 0' }}>
@@ -103,7 +103,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               </main>
               <Footer />
           </DataProvider>
-        </SupabaseProvider>
+        {/* </SupabaseProvider> */}
 
       </body>
     </html>

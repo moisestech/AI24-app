@@ -1,10 +1,11 @@
 import type { FC } from 'react'
 import React from 'react'
-import Categories from '../components/ui/Search/Categories'
+// import Categories from '../components/ui/Search/Categories'
 
 const CategoriesPage: FC = () => {
   return (
-    <Categories />
+    <h2>{'Categories'}</h2>
+    // <Categories />
   )
 }
 

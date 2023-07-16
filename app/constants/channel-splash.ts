@@ -205,6 +205,36 @@ export const channelEducation = [
   },
 ]
 
+export const channelText2Video = [
+  {
+    id: 1,
+    title: 'NJetchev - AI 3D Characters',
+    year: 2012,
+    artist: "Fabiola Larios M",
+    image: 'https://image.mux.com/ZGRHJG02cYs5uNi3C4YUJcnVkHuWUZAB00HPjQdEvYcq4/thumbnail.png?width=214&height=121&time=30',
+    backdrop_path: '',
+    vote_average: 8.1,
+    mux_asset_id: '',
+    mux_playback_id: 'ZGRHJG02cYs5uNi3C4YUJcnVkHuWUZAB00HPjQdEvYcq4',
+    mux_preview_gif: '&start=10'
+  },
+]
+
+export const channelKaiber = [
+  {
+    id: 1,
+    title: 'NJetchev - AI 3D Characters',
+    year: 2012,
+    artist: "Fabiola Larios M",
+    image: 'https://image.mux.com/ZGRHJG02cYs5uNi3C4YUJcnVkHuWUZAB00HPjQdEvYcq4/thumbnail.png?width=214&height=121&time=30',
+    backdrop_path: '',
+    vote_average: 8.1,
+    mux_asset_id: '',
+    mux_playback_id: 'ZGRHJG02cYs5uNi3C4YUJcnVkHuWUZAB00HPjQdEvYcq4',
+    mux_preview_gif: '&start=10'
+  },
+]
+
 export const channelGen = [
   {
     id: 1,

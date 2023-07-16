@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import { createServerSupabaseClient } from '@/app/supabase-server';
+// import { createServerSupabaseClient } from '@/app/supabase-server';
 
 import Logo from '../../../components/icons/Logo';
-import SignOutButton from './SignOutButton';
+// import SignOutButton from './SignOutButton';
 
 import s from './Navbar.module.css';
 
 export default async function Navbar() {
-  const supabase = createServerSupabaseClient();
-  const {
-    data: { session }
-  } = await supabase.auth.getUser();
+  // const supabase = createServerSupabaseClient();
+  // const {
+  //   data: { session }
+  // } = await supabase.auth.getUser();
 
   return (
     <nav className={s.root}>
@@ -27,7 +27,7 @@ export default async function Navbar() {
               <Link href="/" className={s.link}>
                 Pricing
               </Link>
-              {user && (
+              {/* {user && ( */}
                 <>
                   <Link href="/account" className={s.link}>
                     Account
@@ -36,17 +36,25 @@ export default async function Navbar() {
                     Create
                   </Link>
                 </>
-              )}
+              {/* )} */}
             </nav>
           </div>
           <div className="flex justify-end flex-1 space-x-8">
-            {session ? (
+            {/* {session ? (
               <SignOutButton />
             ) : (
               <Link href="/signin" className={s.link}>
                 Sign in
               </Link>
-            )}
+            )} */}
+
+            {/* {session ? (
+              <SignOutButton />
+            ) : ( */}
+              <Link href="/signin" className={s.link}>
+                Sign in
+              </Link>
+            {/* )} */}
           </div>
         </div>
       </div>

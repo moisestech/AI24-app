@@ -1,5 +1,6 @@
 'use client'
 
+import type { FC } from "react"
 import { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,7 +16,7 @@ import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import Logo from "./icons/Logo";
 
-const Navbar: FC = ({ loc, session }) => {
+const Navbar: FC = () => { // { loc, session }
   const [show, handleShow] = useState(false);
   const router = useRouter();
 
@@ -70,16 +71,16 @@ const Navbar: FC = ({ loc, session }) => {
           Categories
         </Link>
         |
-        {loc !== "/Search" && (
+        {/* {loc !== "/Search" && ( */}
           <Link href="/Search" className="nav-item">
             Search
             <FaSearch className="search-icon" />
           </Link>
-        )}
+        {/* )} */}
         |
 
         <div className="flex justify-end flex-1 space-x-8">
-          {session ? (
+          {/* {session ? (
             <>
               <Link href="/create" className="nav-item">
                 {'Create'}
@@ -96,14 +97,14 @@ const Navbar: FC = ({ loc, session }) => {
               
                 <SignOutButton />
               </>
-            ) : (
+            ) : ( */}
               <Link href="/signin" className="nav-item">
-                <button size='large' className='flex items-center bg-black'>
+                <Button size='large' className='flex items-center bg-black'>
                   <BiUserCircle className='text-white' style={{ width: 30, height: 30 }} />
                   <p className='text-white'>{'Sign In'}</p>
-                </button>
+                </Button>
               </Link>
-          )} 
+          {/* )}  */}
         </div>
 
         

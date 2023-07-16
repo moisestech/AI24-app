@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ReactNode, FC } from "react";
 import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -9,7 +9,7 @@ import MuxPlayer from '@mux/mux-player-react';
 import { DataContext } from "../../../context/DataProvider";
 import supabase from "../../../../supabase/supabase";
 
-import YoutubeEmbed from "../Player/Youtube";
+// import YoutubeEmbed from "../Player/Youtube";
 import logodefault from "../../../../public/assets/logodefault.svg";
 import castdefault from "../../../../public/assets/castdefault.svg";
 import { BsFillPlayFill } from "react-icons/bs";
@@ -148,7 +148,7 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
     fetchVideoData();
   }, [videoid]);
 
-  const handleWatchList = (videoid) => {
+  const handleWatchList = (videoid: string) => {
     if (WatchList.includes(videoid.toString())) {
       setWatchList(WatchList.filter((item) => item !== videoid.toString()));
     } else {
@@ -175,7 +175,7 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
 
   const [revealed, setRevealed] = useState(false);
 
-  const handleReveal = (videoid) => {
+  const handleReveal = (videoid: string) => {
     if (!History.includes(videoid.toString())) {
       setHistory([...History, videoid.toString()]);
     }
@@ -222,7 +222,7 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
             </div>
             <div className="featured-desc">{Movie.overview}</div>
             <div className="genres">
-              {Movie.genres?.map((item, index) => (
+              {Movie.genres?.map((item: any, index: number) => (
                 <Link
                   key={index}
                   href={`/genre/${item.id}?genre=${item.name}&type=${type}`}
@@ -293,13 +293,13 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
         </div>
       </div>
       <div className={`video-container ${revealed && "revealed"}`}>
-        <YoutubeEmbed embedId={Video?.key} />
+        {/* <YoutubeEmbed embedId={Video?.key} /> */}
       </div>
 
       <div className="movie-info-container">
         <div className="movie-info-title title">Featured Cast:</div>
         <div className="movie-info-desc">
-          {Credit.cast?.slice(0, 5).map((item, index) => (
+          {Credit.cast?.slice(0, 5).map((item: any, index: number) => (
             <>
               <div key={index} className="movie-info-item">
                 {item.profile_path ? (
@@ -326,7 +326,7 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
       <div className="movie-info-container">
         <div className="movie-info-title title">Production Companies:</div>
         <div className="movie-info-desc">
-          {Movie.production_companies?.slice(0, 5).map((item, index) => (
+          {Movie.production_companies?.slice(0, 5).map((item: any, index: number) => (
             <>
               <div key={index} className="movie-info-item">
                 {item.logo_path ? (
@@ -356,7 +356,7 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
           {type === "t" ? "Similar TV shows" : "Similar Movies:"}
         </div>
         <div className="popular">
-          {Similar?.slice(0, 3).map((item, index) => (
+          {Similar?.slice(0, 3).map((item: any, index) => (
             <>
               <Link
                 key={index}

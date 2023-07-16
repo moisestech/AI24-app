@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image'
 
-interface MovieProps {
-  video: {
-    id: string;
+interface MoviePreviewProps {
+  video?: {
+    id: string | number;
     title: string;
-    voteAverage: number;
-    previewUrl: string;
-  }
+    vote_average: number; // Change to 'vote_average' instead of 'voteAverage'
+    mux_playback_id: string; // Add the 'mux_playback_id' property
+    image: string; // Add the 'image' property
+    mux_preview_gif: string; // Add the 'mux_preview_gif' property
+  };
 }
+
 
 const MoviePreview: FC<MoviePreviewProps> = ({ video }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -26,22 +29,25 @@ const MoviePreview: FC<MoviePreviewProps> = ({ video }) => {
 
   console.log({ video })
 
-  const previewUrl = `https://image.mux.com/${video?.mux_playback_id}/thumbnail.png?width=214&height=121`
+  // const previewUrl = `https://image.mux.com/${video?.mux_playback_id}/thumbnail.png?width=214&height=121`
 
-  return (            
-    <Link 
-      key={video.id} 
-      className="card"
-      href={`/v/${video.id}`} 
-      
-    >
-       <Image 
-          className='thumbnail'
-          src={video?.image} width={214} height={121} alt="Video Preview" className="max-w-full max-h-full absolute w-full" 
-          style={{
-            background: `${video?.image}`,
-          }}
-        />
+  return (  
+    <>
+    {video &&
+      <Link 
+          key={video.id} 
+          className="card"
+          href={`/v/${video.id}`} 
+          
+        >
+          <Image 
+              src={video?.image} width={214} height={121} 
+              alt="Video Preview" 
+              className="thumbnail max-w-full max-h-full absolute w-full" 
+              style={{
+                background: `${video?.image}`,
+              }}
+            />
 
       
 
@@ -52,7 +58,6 @@ const MoviePreview: FC<MoviePreviewProps> = ({ video }) => {
         onMouseEnter={handleMouseEnter}
         onMouseOut={handleMouseOut}
       >
-       
         
 
         <article
@@ -71,14 +76,16 @@ const MoviePreview: FC<MoviePreviewProps> = ({ video }) => {
                 {/* {type == "tv" ? video.name : video.title} */}
                 {video.title}
               </span>
-              <span className="card-rating text-white">{video.vote_average} &#9733;</span>
+              <span className="card-rating text-white">{video?.vote_average} &#9733;</span>
             </div>
           </article>
 
         </article>
       </div>
-    </Link>
-  );
+    </Link>   
+    }
+    </>
+  )
 };
 
 export default MoviePreview;
