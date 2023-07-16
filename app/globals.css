@@ -5,7 +5,7 @@ body {
   --custom-bg-color: #101010;
   --custom-panel-color: #222;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
-  --custom-color: #fff;
+  /*--custom-color: #fff;*/
   --custom-color-brand: #24b47e;
   --custom-color-secondary: #666;
   --custom-border: 1px solid #333;
@@ -35,7 +35,7 @@ body,
 /* Grid */
 
 .container {
-  width: 90%;
+  /*width: 90%;*/
   margin-left: auto;
   margin-right: auto;
 }
@@ -109,9 +109,9 @@ body,
 
 @media only screen and (min-width: 33.75em) {
   /* 540px */
-  .container {
+  /*.container {
     width: 80%;
-  }
+  }*/
 }
 
 @media only screen and (min-width: 45em) {
@@ -159,10 +159,10 @@ body,
 
 @media only screen and (min-width: 60em) {
   /* 960px */
-  .container {
+  /*.container {
     width: 75%;
     max-width: 60rem;
-  }
+  }*/
 }
 
 /* Forms */
