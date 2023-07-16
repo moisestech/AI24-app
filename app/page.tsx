@@ -17,7 +17,7 @@ import "../styles/App.css";
 import '../styles/onDemand.css'
 const { Text } = Typography;
 
-export function Intro() {
+const Intro = () => {
   return (
     <div className="flex">
       <Manifesto />

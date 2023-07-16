@@ -10,12 +10,8 @@ import Spinner from '../../components/ui/Spinner/Spinner'
 import MovieInfo from '../../components/ui/Movie/MovieInfo'
 import useVideo from '../../hooks/useVideo'
 
-interface PageProps {
-  playbackId: string
-  poster: string
-}
 
-const VideoPage: FC<PageProps> = () => {
+const VideoPage: FC = () => {
   const params = useParams()
   const { id } = params as { id: string }
   const { video, loading } = useVideo(id || '')
