@@ -13,7 +13,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   width?: number;
   loading?: boolean;
-  Component?: React.ElementType;
+  Component?: React.ElementType | null;
 }
 
 const Button = forwardRef<HTMLButtonElement, Props>((props, buttonRef) => {
