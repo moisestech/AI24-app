@@ -260,7 +260,7 @@ button.primary,
 /* Widgets */
 
 .card {
-  width: 100%;
+  width: auto;
   display: block;
   border: var(--custom-border);
   border-radius: var(--custom-border-radius);
