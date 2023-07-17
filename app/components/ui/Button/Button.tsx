@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, buttonRef) => {
     loading = false,
     disabled = false,
     style = {},
-    Component = 'button',
+    Component = null,
     ...rest
   } = props;
   const ref = useRef(null);
