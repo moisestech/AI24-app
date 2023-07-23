@@ -74,6 +74,10 @@ const Navbar: FC = () => { // { loc, session }
             </Link>
             |
             <Link href="/categories" className="nav-item">
+              TV
+            </Link>
+            |
+            <Link href="/categories" className="nav-item">
               Live
             </Link>
             {/* |

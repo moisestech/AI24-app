@@ -98,6 +98,8 @@ const App: FC = () => {
           <MuxPlayer
             className='mux-player'
             streamType="on-demand"
+            autoPlay={true}
+            muted={true}
             playbackId="CH6vKfURI3mrhIGC3TZ1dCSWNYDxDm7myS84L9F2qRU"
             metadataVideoTitle="Placeholder (optional)"
             metadataViewerUserId="Placeholder (optional)"
