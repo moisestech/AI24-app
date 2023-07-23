@@ -83,6 +83,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           {metadata?.cardImage && (
             <meta property="twitter:card" content="summary_large_image" />
           )}
+
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+
           {metadata?.cardImage && <meta property="twitter:image" content={metadata.cardImage} />}
           {loadTwitterWidget && (
             <script
@@ -98,7 +101,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Navbar /> {/* session={session} */}
               {/* <main className="container" style={{ padding: '50px 0 100px 0' }}> */}
 
-              <main style={{ padding: '0 0 100px 0' }}>
+              <main>
                 {children}
               </main>
               <Footer />
