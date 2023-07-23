@@ -63,79 +63,81 @@ const Navbar: FC = () => { // { loc, session }
 
   return (
     <div className={`nav ${show && "nav-scroll"}`}>
-      <Link href="/" className="logo">
-        <LogoIcon />
-      </Link>
-      <div className="user">
-
-        <Link href="/categories" className="nav-item">
-          On-Demand
-        </Link>
-        |
-        <Link href="/categories" className="nav-item">
-          Live
-        </Link>
-        {/* |
-        <Link href="/categories" className="nav-item">
-          Categories
-        </Link> */}
-
-        {/* {loc !== "/Search" && (
-          <Link href="/Search" className="nav-item">
-            Search
-            <FaSearch className="search-icon" />
+       <div className='nav-inner background-gradient flex justify-between w-full'>  
+          <Link href="/" className="logo">
+            <LogoIcon />
           </Link>
-        )}
-        | */}
+          <div className="user">
 
-        {/* <div className="flex justify-end flex-1 space-x-8">
-          {session ? (
-            <>
-              <Link href="/create" className="nav-item">
-                {'Create'}
-                <AiOutlineVideoCameraAdd className='text-white' style={{ width: 30, height: 30 }} />
+            <Link href="/categories" className="nav-item">
+              On-Demand
+            </Link>
+            |
+            <Link href="/categories" className="nav-item">
+              Live
+            </Link>
+            {/* |
+            <Link href="/categories" className="nav-item">
+              Categories
+            </Link> */}
+
+            {/* {loc !== "/Search" && (
+              <Link href="/Search" className="nav-item">
+                Search
+                <FaSearch className="search-icon" />
               </Link>
+            )}
+            | */}
 
+            {/* <div className="flex justify-end flex-1 space-x-8">
+              {session ? (
+                <>
+                  <Link href="/create" className="nav-item">
+                    {'Create'}
+                    <AiOutlineVideoCameraAdd className='text-white' style={{ width: 30, height: 30 }} />
+                  </Link>
+
+                  <div
+                    className="user-info"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    >
+                    <Image src={profile} alt="profile" />
+                  </div>
+                  
+                    <SignOutButton />
+                  </>
+                ) : (
+                  <Link href="/signin" className="nav-item">
+                    <Button size='large' className='flex items-center bg-black'>
+                      <BiUserCircle className='text-white' style={{ width: 30, height: 30 }} />
+                      <p className='text-white'>{'Sign In'}</p>
+                    </Button>
+                  </Link>
+              )}
+            </div> */}
+
+            
+
+            {isOpen && (
               <div
-                className="user-info"
+                className="test"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                >
-                <Image src={profile} alt="profile" />
+              >
+                <Link href="/account" className="menu-item">
+                  Account
+                </Link>
+                <Link href="/activity" className="menu-item">
+                  Activity
+                </Link>
+                <div className="menu-item" onClick={handleLogout}>
+                  Logout
+                </div>
               </div>
-              
-                <SignOutButton />
-              </>
-            ) : (
-              <Link href="/signin" className="nav-item">
-                <Button size='large' className='flex items-center bg-black'>
-                  <BiUserCircle className='text-white' style={{ width: 30, height: 30 }} />
-                  <p className='text-white'>{'Sign In'}</p>
-                </Button>
-              </Link>
-          )}
-        </div> */}
-
-        
-
-        {isOpen && (
-          <div
-            className="test"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link href="/account" className="menu-item">
-              Account
-            </Link>
-            <Link href="/activity" className="menu-item">
-              Activity
-            </Link>
-            <div className="menu-item" onClick={handleLogout}>
-              Logout
-            </div>
+            )}
+            
           </div>
-        )}
-        
       </div>
     </div>
   );

@@ -17,6 +17,9 @@
 }
 @media screen and (max-width: 767px) {
   .nav {
+    padding: 0;
+  }
+  .nav-inner {
     padding: 0 1rem;
   }
 }
@@ -30,6 +33,11 @@
 .nav-scroll .logo {
   font-size: 3vw;
   transition: 0.5s;
+}
+
+
+.background-gradient {
+  background: linear-gradient(to bottom, #000000ba 40%, #00000000);
 }
 
 .content {
