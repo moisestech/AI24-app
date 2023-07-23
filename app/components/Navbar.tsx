@@ -15,6 +15,7 @@ import { FaSearch } from "react-icons/fa";
 import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import Logo from "./icons/Logo";
+import LogoIcon from './icons/LogoIcon'
 
 const Navbar: FC = () => { // { loc, session }
   const [show, handleShow] = useState(false);
@@ -63,24 +64,32 @@ const Navbar: FC = () => { // { loc, session }
   return (
     <div className={`nav ${show && "nav-scroll"}`}>
       <Link href="/" className="logo">
-        <Logo />
+        <LogoIcon />
       </Link>
       <div className="user">
 
         <Link href="/categories" className="nav-item">
-          Categories
+          On-Demand
         </Link>
         |
-        {/* {loc !== "/Search" && ( */}
+        <Link href="/categories" className="nav-item">
+          Live
+        </Link>
+        {/* |
+        <Link href="/categories" className="nav-item">
+          Categories
+        </Link> */}
+
+        {/* {loc !== "/Search" && (
           <Link href="/Search" className="nav-item">
             Search
             <FaSearch className="search-icon" />
           </Link>
-        {/* )} */}
-        |
+        )}
+        | */}
 
-        <div className="flex justify-end flex-1 space-x-8">
-          {/* {session ? (
+        {/* <div className="flex justify-end flex-1 space-x-8">
+          {session ? (
             <>
               <Link href="/create" className="nav-item">
                 {'Create'}
@@ -97,15 +106,15 @@ const Navbar: FC = () => { // { loc, session }
               
                 <SignOutButton />
               </>
-            ) : ( */}
+            ) : (
               <Link href="/signin" className="nav-item">
                 <Button size='large' className='flex items-center bg-black'>
                   <BiUserCircle className='text-white' style={{ width: 30, height: 30 }} />
                   <p className='text-white'>{'Sign In'}</p>
                 </Button>
               </Link>
-          {/* )}  */}
-        </div>
+          )}
+        </div> */}
 
         
 

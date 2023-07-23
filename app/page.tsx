@@ -111,17 +111,19 @@ const App: FC = () => {
 
         <div className="featured z-10">
           <div className="featured-left">
+
             <div className="featured-icon">Featured</div>
             <div className="featured-title">
               {/* {Featured.title || Featured.name || "loading..."} */}
               {'Artificial Planet' || 'loading...'}
             </div>
+            
             <div className="featured-desc" style={{ maxWidth: 450 }}>
               {/* {Featured.overview || "loading..."} */}
-              {'Oscar-winning series of art short films bringing to life creativity in this stunning animation musical tale.' || "loading..."}
+              {'Oscar-winning series of AI Art short films bringing to life creativity in this stunning animation musical tale.' || "loading..."}
             </div>
 
-            <article className='flex'>
+            <article className='featured-cta flex'>
               <Button className='flex bg-white h-12 w-32 mt-5 items-center justify-center mr-4'>
                 <FaPlay className='text-black mr-4 text-xl' />
                 <Text className='text-lg font-bold'>{'Play'}</Text>

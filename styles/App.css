@@ -15,6 +15,11 @@
   z-index: 100;
   transition: 0.5s;
 }
+@media screen and (max-width: 767px) {
+  .nav {
+    padding: 0 1rem;
+  }
+}
 
 .nav-scroll {
   background-color: rgba(0, 0, 0, 0.5);
@@ -47,6 +52,12 @@
   background-size: cover !important;
   /* padding-bottom: 2rem; */
   transition: background 1s ease !important;
+}
+
+@media screen and (max-width: 767px) {
+  .master {
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -88,10 +99,25 @@
   width: 100%;
   padding: 3rem 2rem 5rem 2rem;
 }
+@media screen and (max-width: 767px) {
+  .featured {
+    padding: 3rem 1rem 4rem 1rem;
+  }
+}
 
 .featured-left {
   width: 60%;
 }
+@media screen and (max-width: 767px) {
+  .featured-left {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
 .featured-right {
   font-size: 2rem;
   width: 50%;
@@ -105,10 +131,22 @@
   font-size: 1.1vw;
   font-weight: 800;
 }
+@media screen and (max-width: 767px) {
+  .featured-icon {
+    display: none;
+  }
+}
 .featured-title {
   /* font-size: 1.8rem; */
   font-size: 4.3vw;
   font-weight: 800;
+}
+@media screen and (max-width: 767px) {
+  .featured-title {
+    font-size: 2rem;
+    text-align: center;
+    width: auto;
+  }
 }
 
 .featured-desc {
@@ -119,6 +157,20 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media screen and (max-width: 767px) {
+  .featured-desc {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+.featured-cta {
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .featured-cta {
+    justify-content: center;
+  }
 }
 
 .container-text {
@@ -277,6 +329,12 @@ input[type="number"] {
   justify-content: center;
   gap: 0.5rem;
 }
+@media screen and (max-width: 767px) {
+  .nav-item {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
 
 .search input {
   border: none;
@@ -370,6 +428,13 @@ input[type="number"] {
 .popular::-webkit-scrollbar {
   display: none;
 }
+@media screen and (max-width: 767px) {
+  .popular {
+    gap: 0.3rem;
+    padding-left: 1rem;
+  }
+}
+
 
 .arrow-container {
   height: 0;
@@ -377,6 +442,15 @@ input[type="number"] {
 .title {
   font-weight: 700;
   padding: 1rem 0 0 2rem;
+}
+@media screen and (max-width: 767px) {
+  .title {
+    padding: 0 0 0 1rem;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0 0 0.5em;
+    color: #999;
+  }
 }
 .arrow {
   height: 4.2vw;
@@ -391,6 +465,13 @@ input[type="number"] {
   transition: 0.5s;
   font-weight: 700;
 }
+@media screen and (max-width: 767px) {
+  .arrow {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5em;
+  }
+}
 .arrow:hover {
   background-color: #00b4d8;
   transition: 0.5s;
@@ -402,6 +483,11 @@ input[type="number"] {
 
 .right-arrow {
   left: 90vw;
+}
+@media screen and (max-width: 767px) {
+  .right-arrow {
+    right: 0;
+  }
 }
 
 .card {
@@ -422,6 +508,14 @@ input[type="number"] {
   transition: 0.5s;
   overflow: hidden;
   border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 165px;
+    height: 90px;
+    border-radius: 0.8rem;
+  }
 }
 
 .card:hover {
