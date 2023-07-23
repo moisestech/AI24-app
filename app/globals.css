@@ -264,7 +264,9 @@ button.primary,
   display: block;
   border: var(--custom-border);
   border-radius: var(--custom-border-radius);
-  padding: var(--custom-spacing);
+  /* padding: var(--custom-spacing); */
+  padding: 0;
+  margin: 0;
 }
 
 .avatar {
