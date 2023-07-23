@@ -9,12 +9,15 @@ import Link from 'next/link'
 import Spinner from '../../components/ui/Spinner/Spinner'
 import MovieInfo from '../../components/ui/Movie/MovieInfo'
 import useVideo from '../../hooks/useVideo'
+import { getVideoById } from '../../constants/channel-splash'
 
 
 const VideoPage: FC = () => {
   const params = useParams()
   const { id } = params as { id: string }
-  const { video, loading } = useVideo(id || '')
+  // const { video, loading } = useVideo(id || '')
+
+  const video = getVideoById(parseInt(id, 10))
 
   // const [poster, setPoster] = useState<string | null>(null);
 
@@ -27,13 +30,11 @@ const VideoPage: FC = () => {
 
   // console.log("playbackId: ", playbackId)
 
-  console.log({ id })
-  console.log({ video, loading })
+  console.log({ id, video })
+  // console.log({ video, loading })
 
-  if (loading) {
-    return (
-      <Spinner />
-    )
+  if (!video) {
+    return <Spinner />
   }
 
   return (

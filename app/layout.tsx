@@ -84,7 +84,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <meta property="twitter:card" content="summary_large_image" />
           )}
 
-          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
 
           {metadata?.cardImage && <meta property="twitter:image" content={metadata.cardImage} />}
           {loadTwitterWidget && (

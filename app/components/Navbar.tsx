@@ -69,7 +69,7 @@ const Navbar: FC = () => { // { loc, session }
           </Link>
           <div className="user">
 
-            <Link href="/categories" className="nav-item">
+            <Link href="/categories" className="nav-item selected">
               On-Demand
             </Link>
             |

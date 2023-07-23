@@ -106,10 +106,11 @@
   display: flex;
   width: 100%;
   padding: 3rem 2rem 5rem 2rem;
+  z-index: 50;
 }
 @media screen and (max-width: 767px) {
   .featured {
-    padding: 3rem 1rem 4rem 1rem;
+    padding: 3rem 1rem 1rem 1rem;
   }
 }
 
@@ -155,6 +156,10 @@
     text-align: center;
     width: auto;
   }
+  .movie-info .featured-title {
+    text-align: left;
+    margin-bottom: 6rem;
+  }
 }
 
 .featured-desc {
@@ -170,6 +175,11 @@
   .featured-desc {
     font-size: 1rem;
     text-align: center;
+    line-height: 1.3rem;
+  }
+  .featured-desc {
+    text-align: left;
+    padding: 1rem;
   }
 }
 .featured-cta {
@@ -337,6 +347,11 @@ input[type="number"] {
   justify-content: center;
   gap: 0.5rem;
 }
+.nav-item.selected {
+  color: var(--ascent);
+  font-weight: 600;
+  border-bottom: 3px solid lime;
+}
 @media screen and (max-width: 767px) {
   .nav-item {
     font-size: 1.2rem;
@@ -440,6 +455,7 @@ input[type="number"] {
   .popular {
     gap: 0.3rem;
     padding-left: 1rem;
+    overflow-x: scroll;
   }
 }
 
@@ -468,8 +484,8 @@ input[type="number"] {
   font-size: 3vw;
   position: relative;
   z-index: 10;
-  top: 5vw;
-  background-color: #00b4d834;
+  top: 6vw;
+  background-color: #00000034;
   transition: 0.5s;
   font-weight: 700;
 }
@@ -494,7 +510,11 @@ input[type="number"] {
 }
 @media screen and (max-width: 767px) {
   .right-arrow {
-    right: 0;
+    left: 77vw;
+  }
+  .left-arrow svg, .right-arrow svg {
+    width: 20px;
+    margin: 0 auto;
   }
 }
 
@@ -587,6 +607,11 @@ a {
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
+@media screen and (max-width: 767px) {
+  .movie-info {
+    height: 45vh;
+  }
+}
 
 .genres {
   padding-top: 1rem;
@@ -595,6 +620,7 @@ a {
   gap: 1rem;
 }
 .genre-item {
+  color: white;
   font-size: 1.3vw;
   white-space: nowrap;
   background-color: rgba(0, 0, 0, 0.521);
@@ -609,6 +635,13 @@ a {
   font-weight: 700;
   transform: scale(1.6);
   transition: 0.2s;
+}
+@media screen and (max-width: 767px) {
+  .genre-item {
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 0.6rem;
+  }
 }
 
 .movie-card-container {
@@ -625,6 +658,12 @@ a {
   border-radius: 1rem;
   background: rgba(10, 67, 255, 0.2);
   transition: 0.7s;
+}
+@media screen and (max-width: 767px) {
+  .movie-card {
+    border-radius: 0.6rem;
+    height: 12vw;
+  }
 }
 
 .movie-card:hover {
@@ -644,6 +683,12 @@ a {
 }
 .movie-info-play {
   font-size: 5rem;
+}
+@media screen and (max-width: 767px) {
+  .movie-info-play {
+    font-size: 3rem;
+    padding: 0.5rem 0;
+  }
 }
 .movie-card-title {
   text-align: center;
@@ -666,19 +711,25 @@ a {
   margin: 2rem;
   height: 100%;
 }
+@media screen and (max-width: 767px) {
+  .movie-info-container {
+    margin: 1rem 0 0 0;
+    border-radius: 0;
+  }
+}
 
 .movie-info-desc {
   height: 100%;
   display: flex;
   gap: 3rem;
-  padding: 1rem 3rem;
+  padding: 1rem;
 }
 .movie-info-title {
   font-size: 1.5rem;
 }
 
 .movie-info-item {
-  width: 6vw;
+  /* width: 6vw; */
   display: flex;
   gap: 1rem;
   flex-direction: column;

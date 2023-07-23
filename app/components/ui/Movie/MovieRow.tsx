@@ -4,6 +4,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import MoviePreview from "./MoviePreview";
 import { channelPop, channelNFT, channelGen, channelTV, channelGAN, channelEducation, channelMusicVideos, channelAIIA, channelAIFilms, channelKaiber, channelAIAmbient, channelText2Video, channelAI3D } from '../../../constants/channel-splash';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface MovieRowProps {
   index: number;
@@ -155,14 +156,14 @@ const MovieRow: FC<MovieRowProps> = ({
           className="arrow left-arrow"
           onClick={() => handleScroll(index, -664)}
         >
-          &lt;
+          <FaChevronLeft />
         </button>
 
         <button
           className="arrow right-arrow"
           onClick={() => handleScroll(index, 664)}
         >
-          &gt;
+          <FaChevronRight />
         </button>
       </div>
       <div ref={setContainerRef(index)} className="popular">
