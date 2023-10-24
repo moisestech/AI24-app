@@ -5,16 +5,16 @@ import React from 'react'
 import { useState, useEffect, useRef } from "react";
 
 import MuxPlayer from '@mux/mux-player-react';
-import AuthForm from './auth-form'
-import Navbar from './components/Navbar'
-import Manifesto from './components/Manifesto'
-import MovieRow from "./components/ui/Movie/MovieRow";
+import AuthForm from '../auth-form'
+import Navbar from '../components/Navbar'
+import Manifesto from '../components/Manifesto'
+import MovieRow from "../components/ui/Movie/MovieRow";
 
 import { Button, Typography } from "antd";
 import { FaPlay } from "react-icons/fa";
 import { BiInfoCircle } from "react-icons/bi";
-import "../styles/App.css";
-import '../styles/onDemand.css'
+import "../../styles/App.css";
+import '../../styles/onDemand.css'
 const { Text } = Typography;
 
 const Intro = () => {
