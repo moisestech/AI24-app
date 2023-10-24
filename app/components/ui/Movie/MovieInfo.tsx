@@ -44,9 +44,27 @@ type MovieInfoProps = {
   };
 }
 
-const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
-  const { videoid } = useParams();
+interface RouteParams {
+  videoid: string;
+  [key: string]: string | string[];
+}
 
+
+const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
+
+  const params = useParams<RouteParams>();
+
+  if (params) {
+
+    const { videoid } = params;
+    console.log("videoid", videoid);
+
+  } else {
+
+    console.error("No params available");
+  }
+
+  
   const [Movie, setMovie] = useState<any>({});
   const [Credit, setCredit] = useState<any>({});
   const [Similar, setSimilar] = useState<any[]>([]);

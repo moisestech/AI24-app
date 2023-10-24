@@ -14,13 +14,15 @@ export default function AccountForm({ session }: { session: Session | null }) {
   const user = session?.user
 
   const getProfile = useCallback(async () => {
+
+  if(user?.id){
     try {
       setLoading(true)
 
       let { data, error, status } = await supabase
         .from('profiles')
         .select(`full_name, username, website, avatar_url`)
-        .eq('id', user?.id)
+        .eq('id', user.id)
         .single()
 
       if (error && status !== 406) {
@@ -38,6 +40,11 @@ export default function AccountForm({ session }: { session: Session | null }) {
     } finally {
       setLoading(false)
     }
+  } else {
+
+    alert('Error loading user data!')
+    
+  }
   }, [user, supabase])
 
   useEffect(() => {
