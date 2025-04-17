@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { BRAND } from '../constants/brand'
 
 interface ContentHistory {
@@ -35,7 +35,7 @@ export function useContentRandomizer() {
   })
 
   // Get all available content
-  const allSlogans = [...BRAND.slogans.dynamic, ...BRAND.slogans.static]
+  const allSlogans = useMemo(() => [...BRAND.slogans.dynamic, ...BRAND.slogans.static], [])
   const allPositionings = Object.keys(BRAND.positioning) as Array<keyof typeof BRAND.positioning>
 
   // Helper function to get random item with history tracking
@@ -113,10 +113,7 @@ export function useContentRandomizer() {
 
   // Set up interval for content rotation
   useEffect(() => {
-    const interval = setInterval(() => {
-      updateContent()
-    }, 10000) // Change every 10 seconds
-
+    const interval = setInterval(updateContent, 8000)
     return () => clearInterval(interval)
   }, [updateContent])
 

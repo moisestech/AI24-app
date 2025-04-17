@@ -57,9 +57,12 @@ export function useTextSequence() {
   }
 
   useEffect(() => {
-    const interval = setInterval(transitionToNext, 8000)
-    return () => clearInterval(interval)
-  }, [state.currentType])
+    const timer = setInterval(() => {
+      transitionToNext()
+    }, 8000)
+
+    return () => clearInterval(timer)
+  }, [transitionToNext])
 
   return {
     currentText: state.currentText,

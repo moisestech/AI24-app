@@ -2,6 +2,7 @@ import type { ReactNode, FC } from "react";
 import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from 'next/image'
 
 import UseAnimations from "react-useanimations";
 import bookmark from "react-useanimations/lib/bookmark";
@@ -158,12 +159,12 @@ const MovieInfo: FC<MovieInfoProps> = ({ video }) => {
             return creator ? (
               <>
                  <div key={creator.id} className="movie-info-item">
-                    <img
-                      className="movie-info-item-img"
+                    <Image
                       src={creator.image}
                       alt={creator.name}
                       width={90}
                       height={90}
+                      className="w-full h-auto"
                     />
                     <Link href={creator.link}>{creator.name}</Link>
                   </div>

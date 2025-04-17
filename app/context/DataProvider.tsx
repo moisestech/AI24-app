@@ -65,6 +65,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
     if (User) handleData()
   }, [User])
 
+  useEffect(() => {
+    handleData()
+  }, [handleData])
+
   return (
     <DataContext.Provider
       value={{
