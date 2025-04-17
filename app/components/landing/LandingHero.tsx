@@ -38,6 +38,7 @@ const CTA_BUTTONS: CTAButton[] = [
   {
     id: 'get-started',
     text: 'Get Started',
+    label: 'Get Started',
     href: '/signup',
     variant: 'default',
     className: 'w-full md:w-auto' // Responsive width
@@ -45,6 +46,7 @@ const CTA_BUTTONS: CTAButton[] = [
   {
     id: 'learn',
     text: 'Learn More',
+    label: 'Learn More',
     href: '/about',
     variant: 'outline',
     className: 'w-full md:w-auto' // Responsive width

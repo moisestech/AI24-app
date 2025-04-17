@@ -4,9 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import type { MediaItem } from './types'
-import type { MuxPlayerProps } from '@mux/mux-player-react'
 
-// Import MuxPlayer with proper type and loading state
+// Import MuxPlayer with proper type
 const MuxPlayer = dynamic(
   () => import('@mux/mux-player-react').then((mod) => mod.default),
   {
@@ -21,7 +20,7 @@ const MuxPlayer = dynamic(
       </div>
     )
   }
-) as React.ComponentType<MuxPlayerProps>
+)
 
 interface MuxPlayerComponentProps {
   media: MediaItem
