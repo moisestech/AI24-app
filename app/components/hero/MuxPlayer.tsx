@@ -4,27 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import type { MediaItem } from './types'
-import type { MuxPlayerProps as MuxPlayerRefProps } from '@mux/mux-player-react'
-
-// Define MuxPlayer props type
-interface MuxPlayerProps extends MuxPlayerRefProps {
-  streamType: 'on-demand'
-  playbackId: string
-  autoPlay: boolean
-  muted: boolean
-  loop: boolean
-  className: string
-  style: React.CSSProperties
-}
+import type { MuxPlayerProps } from '@mux/mux-player-react'
 
 // Wrapper component to ensure MuxPlayer is only rendered on client
-const ClientOnlyMuxPlayer = dynamic(
-  () => import('@mux/mux-player-react').then((mod) => {
-    const MuxPlayer = mod.default
-    return function WrappedMuxPlayer(props: MuxPlayerProps) {
-      return <MuxPlayer {...props} />
-    }
-  }),
+const MuxPlayer = dynamic(
+  () => import('@mux/mux-player-react').then((mod) => mod.default),
   {
     ssr: false,
     loading: () => (
@@ -74,7 +58,7 @@ const MuxPlayerComponent: React.FC<MuxPlayerComponentProps> = ({ media, isPlayin
         transition={{ duration: 0.5 }}
       >
         {media.type === 'video' && media.mux_playback_id ? (
-          <ClientOnlyMuxPlayer
+          <MuxPlayer
             streamType="on-demand"
             playbackId={media.mux_playback_id}
             autoPlay={true}
