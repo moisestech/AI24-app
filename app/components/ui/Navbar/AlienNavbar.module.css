@@ -1,0 +1,174 @@
+.navItem {
+  @apply relative inline-flex items-center px-1 py-2 text-sm font-medium transition-all duration-300;
+}
+
+.navItem:hover {
+  animation: rgbGlitch 0.3s ease-in-out;
+}
+
+@keyframes rgbGlitch {
+  0% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+  }
+  25% {
+    text-shadow: -2px 0 0 #ff0000, 2px 0 0 #00ff00;
+  }
+  50% {
+    text-shadow: 2px 0 0 #0000ff, -2px 0 0 #ff0000;
+  }
+  75% {
+    text-shadow: -2px 0 0 #0000ff, 2px 0 0 #ff0000;
+  }
+  100% {
+    text-shadow: 2px 0 0 #00ff00, -2px 0 0 #0000ff;
+  }
+}
+
+.socialIcon {
+  @apply relative inline-flex items-center justify-center w-6 h-6 transition-all duration-300;
+}
+
+.socialIcon:hover {
+  animation: rgbGlitch 0.3s ease-in-out;
+}
+
+.qrHover {
+  @apply absolute top-full left-1/2 -translate-x-1/2 mt-2 p-2 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg;
+  animation: rgbGlitch 0.3s ease-in-out;
+}
+
+.glitched {
+  position: relative;
+  animation: glitch 0.3s linear infinite;
+}
+
+.glitched::before,
+.glitched::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.glitched::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: glitch-1 0.3s linear infinite;
+}
+
+.glitched::after {
+  left: -2px;
+  text-shadow: 2px 0 #00ffff;
+  animation: glitch-2 0.3s linear infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(2px, 2px);
+  }
+  80% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(2px, -2px);
+  }
+  100% {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #00ff00;
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  20% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  60% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  80% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  20% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  60% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  80% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.qr-hover {
+  transition: all 0.3s ease;
+}
+
+.qr-hover:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover::after {
+  transform: translateX(0);
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 8px currentColor);
+} 

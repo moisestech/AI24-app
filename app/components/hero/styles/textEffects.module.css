@@ -1,0 +1,81 @@
+.missionGlow {
+  text-shadow: 
+    0 0 10px rgba(255, 0, 0, 0.5),
+    0 0 20px rgba(0, 255, 0, 0.5),
+    0 0 30px rgba(0, 0, 255, 0.5);
+  animation: missionGlow 3s infinite alternate;
+}
+
+.descriptionGlitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.taglineGradient {
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes missionGlow {
+  0% {
+    text-shadow: 
+      0 0 10px rgba(255, 0, 0, 0.5),
+      0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 0, 255, 0.5);
+  }
+  33% {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 0, 0.5),
+      0 0 20px rgba(0, 0, 255, 0.5),
+      0 0 30px rgba(255, 0, 0, 0.5);
+  }
+  66% {
+    text-shadow: 
+      0 0 10px rgba(0, 0, 255, 0.5),
+      0 0 20px rgba(255, 0, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    text-shadow: 
+      0 0 10px rgba(255, 0, 0, 0.5),
+      0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 0, 255, 0.5);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
