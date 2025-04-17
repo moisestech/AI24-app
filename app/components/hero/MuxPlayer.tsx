@@ -7,7 +7,7 @@ import type { MediaItem } from './types'
 import type { MuxPlayerProps as MuxPlayerRefProps } from '@mux/mux-player-react'
 
 // Define MuxPlayer props type
-type MuxPlayerProps = {
+interface MuxPlayerProps extends MuxPlayerRefProps {
   streamType: 'on-demand'
   playbackId: string
   autoPlay: boolean
@@ -15,9 +15,6 @@ type MuxPlayerProps = {
   loop: boolean
   className: string
   style: React.CSSProperties
-  onPlay: () => void
-  onPause: () => void
-  onError: (evt: ErrorEvent) => void
 }
 
 // Wrapper component to ensure MuxPlayer is only rendered on client
@@ -25,15 +22,7 @@ const ClientOnlyMuxPlayer = dynamic(
   () => import('@mux/mux-player-react').then((mod) => {
     const MuxPlayer = mod.default
     return function WrappedMuxPlayer(props: MuxPlayerProps) {
-      // Ensure consistent props between server and client
-      const muxProps = {
-        ...props,
-        streamType: 'on-demand' as const,
-        autoPlay: true,
-        muted: true,
-        loop: true,
-      }
-      return <MuxPlayer {...muxProps} />
+      return <MuxPlayer {...props} />
     }
   }),
   {
@@ -101,18 +90,20 @@ const MuxPlayerComponent: React.FC<MuxPlayerComponentProps> = ({ media, isPlayin
               left: 0,
               width: '100%',
               height: '100%',
-              objectFit: 'cover'
+              objectFit: 'cover' as const
             }}
-            onPlay={() => console.log('Mux player started playing')}
-            onPause={() => console.log('Mux player paused')}
-            onError={(evt: ErrorEvent) => console.error('Mux player error:', evt)}
+            onPlay={() => console.log('Playing')}
+            onPause={() => console.log('Paused')}
+            onError={(evt) => console.error('Error:', evt)}
           />
         ) : (
-          <img
-            src={media.url}
-            alt=""
-            className="w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 w-full h-full bg-black">
+            <img
+              src={media.thumbnail || '/images/placeholder.jpg'}
+              alt={media.alt || 'Media thumbnail'}
+              className="w-full h-full object-cover"
+            />
+          </div>
         )}
       </motion.div>
     </div>
