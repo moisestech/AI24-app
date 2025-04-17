@@ -1,8 +1,8 @@
 declare module '@mux/mux-player-react' {
-  import { ForwardRefExoticComponent, RefAttributes } from 'react'
+  import { ComponentType } from 'react'
 
   export interface MuxPlayerProps {
-    streamType?: 'on-demand' | 'live' | 'll-live'
+    streamType?: string
     playbackId: string
     autoPlay?: boolean
     muted?: boolean
@@ -14,17 +14,12 @@ declare module '@mux/mux-player-react' {
     onError?: (evt: any) => void
   }
 
-  export interface MuxPlayerElement extends HTMLElement {
-    play: () => Promise<void>
-    pause: () => void
-  }
-
-  const MuxPlayer: ForwardRefExoticComponent<MuxPlayerProps & RefAttributes<MuxPlayerElement>>
+  const MuxPlayer: ComponentType<MuxPlayerProps>
   export default MuxPlayer
 }
 
-export interface MuxPlayerProps {
-  streamType?: 'on-demand' | 'live' | 'll-live'
+export type MuxPlayerProps = {
+  streamType?: string
   playbackId: string
   autoPlay?: boolean
   muted?: boolean

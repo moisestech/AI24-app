@@ -4,11 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import type { MediaItem } from './types'
-import type { MuxPlayerProps } from '../../types/mux-player'
 
-// Import MuxPlayer with proper type
+// Import MuxPlayer with a simpler dynamic import
 const MuxPlayer = dynamic(
-  () => import('@mux/mux-player-react'),
+  () => import('@mux/mux-player-react').then((mod) => mod.default),
   {
     ssr: false,
     loading: () => (
