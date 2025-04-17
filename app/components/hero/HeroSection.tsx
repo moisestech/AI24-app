@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
-import { MediaLayer } from './MediaLayer'
-import { ContentLayer } from './ContentLayer'
+import MediaLayer from './MediaLayer'
+import ContentLayer from './ContentLayer'
 import { useMediaSequence } from './hooks/useMediaSequence'
 import { useTextSequence } from './hooks/useTextSequence'
 import { useDebugControls } from './hooks/useDebugControls'
@@ -68,12 +68,14 @@ const CTA_BUTTONS: CTAButton[] = [
   {
     id: 'get-started',
     text: 'Get Started',
+    label: 'Get Started',
     href: '/signup',
     variant: 'default'
   },
   {
     id: 'learn',
     text: 'Learn More',
+    label: 'Learn More',
     href: '/about',
     variant: 'outline'
   }
@@ -127,7 +129,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         tagline={tagline}
         ctaButtons={ctaButtons}
       />
-      {isDebugMode && <DebugControls />}
+      {isDebugMode && <div className="debug-panel">Debug Mode Active</div>}
     </div>
   )
 }
