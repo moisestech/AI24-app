@@ -4,11 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import type { MediaItem } from './types'
-import type { MuxPlayerProps } from '@mux/mux-player-react'
 
-// Wrapper component to ensure MuxPlayer is only rendered on client
+// Import MuxPlayer from the lazy version
 const MuxPlayer = dynamic(
-  () => import('@mux/mux-player-react').then((mod) => mod.default),
+  () => import('@mux/mux-player-react/lazy').then((mod) => mod.default),
   {
     ssr: false,
     loading: () => (
