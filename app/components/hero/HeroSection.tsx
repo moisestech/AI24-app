@@ -33,8 +33,32 @@ const MEDIA_ITEMS: MediaItem[] = [
     alt: 'Hero video 1'
   },
   {
-    id: 'ai24-yamiichi-part-2',
-    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744861569/ai24/app/video/ai24-manifesto_ygmpdr.mp4',
+    id: 'ai24-humanagain-part-1',
+    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744907079/ai24/app/video/ai24-humanagain-part-1_pnkkzu.mp4',
+    type: 'video',
+    alt: 'Hero video 2'
+  },
+  {
+    id: 'ai24-humanagain-part-2',
+    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744907070/ai24/app/video/ai24-humanagain-part-2_btt1vu.mp4',
+    type: 'video',
+    alt: 'Hero video 2'
+  },
+  {
+    id: 'ai24-humanagain-part-3',
+    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744907094/ai24/app/video/ai24-humanagain-part-3_bzkk40.mp4',
+    type: 'video',
+    alt: 'Hero video 2'
+  },
+  {
+    id: 'ai24-humanagain-part-4',
+    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744907061/ai24/app/video/ai24-humanagain-part-4_d6fkd4.mp4',
+    type: 'video',
+    alt: 'Hero video 2'
+  },
+  {
+    id: 'ai24-humanagain-part-5',
+    url: 'https://res.cloudinary.com/dck5rzi4h/video/upload/v1744907040/ai24/app/video/ai24-humanagain-part-5_icoucb.mp4',
     type: 'video',
     alt: 'Hero video 2'
   }
