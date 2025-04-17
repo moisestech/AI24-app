@@ -86,7 +86,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description = '',
   tagline = '',
   ctaButtons = CTA_BUTTONS,
-  isPlaying = false
+  isPlaying = false,
+  className = ''
 }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [isMediaPlaying, setIsMediaPlaying] = useAtom(isMediaPlayingAtom)
@@ -111,34 +112,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, [isMounted, setIsMediaPlaying])
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Media Layer */}
+    <div className={`relative w-full min-h-screen ${className}`}>
       <MediaLayer
-        media={currentMedia}
+        mediaUrl={currentMedia?.url}
+        mediaType={currentMedia?.type}
+        mediaPoster={currentMedia?.thumbnail}
         isPlaying={isMediaPlaying}
+        isTransitioning={isTransitioning}
       />
-
-      {/* Content Layer */}
       <ContentLayer
-        activeLayer={currentType}
-        currentText={currentText}
-        isVisible={!isTextTransitioning}
+        slogans={slogans}
+        mission={mission}
+        description={description}
+        tagline={tagline}
+        ctaButtons={ctaButtons}
       />
-
-      {/* Debug Controls */}
-      {isDebugMode && (
-        <div className="absolute bottom-4 left-4 bg-black/50 p-4 rounded-lg text-white z-50">
-          <pre>
-            {JSON.stringify({
-              currentType,
-              currentText,
-              isTextTransitioning,
-              isMediaPlaying,
-              isTransitioning
-            }, null, 2)}
-          </pre>
-        </div>
-      )}
+      {isDebugMode && <DebugControls />}
     </div>
   )
 }

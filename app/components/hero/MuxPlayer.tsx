@@ -4,23 +4,24 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import type { MediaItem } from './types'
+import type { MuxPlayerProps } from '@mux/mux-player-react'
 
-// Import MuxPlayer from the lazy version
+// Import MuxPlayer with proper type and loading state
 const MuxPlayer = dynamic(
-  () => import('@mux/mux-player-react/lazy').then((mod) => mod.default),
+  () => import('@mux/mux-player-react').then((mod) => mod.default),
   {
     ssr: false,
     loading: () => (
       <div className="absolute inset-0 w-full h-full bg-black">
         <img
           src="/images/placeholder.jpg"
-          alt="Loading..."
+          alt="Loading video..."
           className="w-full h-full object-cover"
         />
       </div>
     )
   }
-)
+) as React.ComponentType<MuxPlayerProps>
 
 interface MuxPlayerComponentProps {
   media: MediaItem
@@ -29,18 +30,25 @@ interface MuxPlayerComponentProps {
 
 const MuxPlayerComponent: React.FC<MuxPlayerComponentProps> = ({ media, isPlaying }) => {
   const [isMounted, setIsMounted] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
+  // Handle video errors
+  const handleError = (evt: any) => {
+    console.error('Video error:', evt)
+    setIsError(true)
+  }
+
   // Always render a placeholder on server and initial client render
-  if (!isMounted) {
+  if (!isMounted || isError) {
     return (
       <div className="absolute inset-0 w-full h-full bg-black">
         <img
           src={media.thumbnail || '/images/placeholder.jpg'}
-          alt="Loading..."
+          alt={media.alt || 'Video thumbnail'}
           className="w-full h-full object-cover"
         />
       </div>
@@ -60,7 +68,7 @@ const MuxPlayerComponent: React.FC<MuxPlayerComponentProps> = ({ media, isPlayin
           <MuxPlayer
             streamType="on-demand"
             playbackId={media.mux_playback_id}
-            autoPlay={true}
+            autoPlay={isPlaying}
             muted={true}
             loop={true}
             className="w-full h-full"
@@ -75,9 +83,9 @@ const MuxPlayerComponent: React.FC<MuxPlayerComponentProps> = ({ media, isPlayin
               height: '100%',
               objectFit: 'cover' as const
             }}
-            onPlay={() => console.log('Playing')}
-            onPause={() => console.log('Paused')}
-            onError={(evt) => console.error('Error:', evt)}
+            onPlay={() => console.log('Video playing')}
+            onPause={() => console.log('Video paused')}
+            onError={handleError}
           />
         ) : (
           <div className="absolute inset-0 w-full h-full bg-black">

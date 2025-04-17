@@ -20,6 +20,9 @@ export interface CTAButton {
   text: string
   href: string
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
+  size?: 'default' | 'sm' | 'lg' | 'icon'
+  label: string
+  className?: string
 }
 
 export interface HeroSectionProps {
@@ -30,15 +33,23 @@ export interface HeroSectionProps {
   tagline?: string
   ctaButtons?: CTAButton[]
   isPlaying?: boolean
+  className?: string
 }
 
 export interface MediaLayerProps {
-  media: MediaItem | null
-  isPlaying?: boolean
+  mediaUrl: string
+  mediaType: MediaType
+  mediaPoster?: string
+  isPlaying: boolean
+  isTransitioning: boolean
 }
 
 export interface ContentLayerProps {
-  children: React.ReactNode
+  slogans: string[]
+  mission: string
+  description: string
+  tagline: string
+  ctaButtons: CTAButton[]
 }
 
 export interface TextLayerProps {

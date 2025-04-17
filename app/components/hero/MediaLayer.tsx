@@ -1,56 +1,39 @@
 'use client'
 
-import { VideoPlayer } from './VideoPlayer'
-import { MediaItem } from './types'
-import { CSSProperties } from 'react'
+import React from 'react'
+import { MediaType, MediaLayerProps } from './types'
 
-interface MediaLayerProps {
-  media: MediaItem
-  isPlaying: boolean
-  opacity?: number
-  blur?: number
-  brightness?: number
-}
-
-export function MediaLayer({
-  media,
+const MediaLayer: React.FC<MediaLayerProps> = ({
+  mediaUrl,
+  mediaType,
+  mediaPoster,
   isPlaying,
-  opacity = 1,
-  blur = 0,
-  brightness = 1
-}: MediaLayerProps) {
-  const mediaStyle: CSSProperties = {
-    opacity,
-    filter: `blur(${blur}px) brightness(${brightness})`,
-    transition: 'all 0.5s ease-in-out',
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover' as const,
-    position: 'absolute',
-    top: 0,
-    left: 0
-  }
-
+  isTransitioning
+}) => {
   return (
-    <div className="relative w-full h-full">
-      {media.type === 'video' ? (
-        <VideoPlayer
-          url={media.url}
-          isPlaying={isPlaying}
-          style={mediaStyle}
+    <div className="absolute inset-0 w-full h-full">
+      {mediaType === 'video' ? (
+        <video
+          className="w-full h-full object-cover"
+          src={mediaUrl}
+          poster={mediaPoster}
+          autoPlay={isPlaying}
+          muted
+          loop
+          playsInline
         />
       ) : (
         <img
-          src={media.url}
-          alt={media.alt || ''}
-          style={mediaStyle}
+          className="w-full h-full object-cover"
+          src={mediaUrl}
+          alt="Hero background"
         />
       )}
-      {/* Overlay for better text readability */}
-      <div 
-        className="absolute inset-0 bg-black/50 transition-opacity duration-500"
-        style={{ opacity: 0.5 }}
-      />
+      {isTransitioning && (
+        <div className="absolute inset-0 bg-black/50 transition-opacity duration-500" />
+      )}
     </div>
   )
-} 
+}
+
+export default MediaLayer 
