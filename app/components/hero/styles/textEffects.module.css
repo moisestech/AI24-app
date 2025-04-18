@@ -6,6 +6,15 @@
   animation: missionGlow 3s infinite alternate;
 }
 
+.taglineGlow {
+  text-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.8),
+    0 0 40px rgba(0, 255, 255, 0.8),
+    0 0 60px rgba(255, 255, 0, 0.8),
+    0 0 80px rgba(255, 0, 0, 0.8);
+  animation: taglineGlow 2s infinite alternate;
+}
+
 .descriptionGlitch {
   position: relative;
   animation: glitch 2s infinite;
@@ -44,6 +53,44 @@
       0 0 10px rgba(255, 0, 0, 0.5),
       0 0 20px rgba(0, 255, 0, 0.5),
       0 0 30px rgba(0, 0, 255, 0.5);
+  }
+}
+
+@keyframes taglineGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 0, 255, 0.8),
+      0 0 40px rgba(0, 255, 255, 0.8),
+      0 0 60px rgba(255, 255, 0, 0.8),
+      0 0 80px rgba(255, 0, 0, 0.8);
+  }
+  25% {
+    text-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 0, 0.8),
+      0 0 60px rgba(255, 0, 0, 0.8),
+      0 0 80px rgba(255, 0, 255, 0.8);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 0, 0.8),
+      0 0 40px rgba(255, 0, 0, 0.8),
+      0 0 60px rgba(255, 0, 255, 0.8),
+      0 0 80px rgba(0, 255, 255, 0.8);
+  }
+  75% {
+    text-shadow: 
+      0 0 20px rgba(255, 0, 0, 0.8),
+      0 0 40px rgba(255, 0, 255, 0.8),
+      0 0 60px rgba(0, 255, 255, 0.8),
+      0 0 80px rgba(255, 255, 0, 0.8);
+  }
+  100% {
+    text-shadow: 
+      0 0 20px rgba(255, 0, 255, 0.8),
+      0 0 40px rgba(0, 255, 255, 0.8),
+      0 0 60px rgba(255, 255, 0, 0.8),
+      0 0 80px rgba(255, 0, 0, 0.8);
   }
 }
 

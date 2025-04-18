@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { BRAND } from '../../../constants/brand'
 import { TextLayerType } from '../types'
 
@@ -17,7 +17,14 @@ export function useTextSequence() {
     isTransitioning: false
   })
 
-  const getNextText = (currentType: TextLayerType): { type: TextLayerType, text: string } => {
+  const getRandomSlogan = useCallback(() => {
+    const availableSlogans = BRAND.slogans.dynamic.filter(
+      slogan => slogan !== state.currentText
+    )
+    return availableSlogans[Math.floor(Math.random() * availableSlogans.length)] || BRAND.slogans.dynamic[0]
+  }, [state.currentText])
+
+  const getNextText = useCallback((currentType: TextLayerType): { type: TextLayerType, text: string } => {
     switch (currentType) {
       case 'slogan':
         return {
@@ -37,12 +44,12 @@ export function useTextSequence() {
       case 'tagline':
         return {
           type: 'slogan',
-          text: BRAND.slogans.dynamic[Math.floor(Math.random() * BRAND.slogans.dynamic.length)]
+          text: getRandomSlogan()
         }
     }
-  }
+  }, [getRandomSlogan])
 
-  const transitionToNext = () => {
+  const transitionToNext = useCallback(() => {
     setState(prev => ({ ...prev, isTransitioning: true }))
     
     // Fade out current text
@@ -54,13 +61,10 @@ export function useTextSequence() {
         isTransitioning: false
       })
     }, 500)
-  }
+  }, [getNextText, state.currentType])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      transitionToNext()
-    }, 8000)
-
+    const timer = setInterval(transitionToNext, 8000)
     return () => clearInterval(timer)
   }, [transitionToNext])
 
